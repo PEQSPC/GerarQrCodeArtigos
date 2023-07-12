@@ -30,13 +30,14 @@
         {
             this.btn_abrirExcel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_abrirExcel
             // 
-            this.btn_abrirExcel.Location = new System.Drawing.Point(372, 229);
+            this.btn_abrirExcel.Location = new System.Drawing.Point(339, 197);
             this.btn_abrirExcel.Name = "btn_abrirExcel";
-            this.btn_abrirExcel.Size = new System.Drawing.Size(80, 33);
+            this.btn_abrirExcel.Size = new System.Drawing.Size(129, 53);
             this.btn_abrirExcel.TabIndex = 0;
             this.btn_abrirExcel.Text = "Abrir";
             this.btn_abrirExcel.UseVisualStyleBackColor = true;
@@ -45,17 +46,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(348, 197);
+            this.label1.Location = new System.Drawing.Point(348, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Abrir Arquivo Excel";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 425);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(405, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Software sobe demanda do Departamento de IT da empresa ITEC";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_abrirExcel);
             this.Name = "Form1";
@@ -69,6 +80,7 @@
 
         private System.Windows.Forms.Button btn_abrirExcel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

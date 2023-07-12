@@ -72,7 +72,7 @@ namespace GerarQrCodeArquivos
                                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrText, QRCodeGenerator.ECCLevel.Q);
                                 using (QRCode qrCode = new QRCode(qrCodeData))
                                 {
-                                    Bitmap qrImage = qrCode.GetGraphic(5);
+                                    Bitmap qrImage = qrCode.GetGraphic(7);
                                     label.QRCodeImage = qrImage;
                                 }
                             }
@@ -83,9 +83,14 @@ namespace GerarQrCodeArquivos
                             string filePath = Path.Combine(folderPath, fileName);
                             label.QRCodeImage.Save(filePath, ImageFormat.Png);
                         }
+                        // Show the number of QR codes created in a MessageBox
+                        MessageBox.Show($"Total QR Codes Created: {labels.Count}");
                     }
+                   
                 }
             }
+            
+            
         }
 
 
