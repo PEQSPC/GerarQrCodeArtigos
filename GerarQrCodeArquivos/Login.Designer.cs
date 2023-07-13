@@ -44,10 +44,10 @@
             this.btn_login.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btn_login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_login.Cursor = System.Windows.Forms.Cursors.AppStarting;
-            this.btn_login.Location = new System.Drawing.Point(249, 263);
+            this.btn_login.Location = new System.Drawing.Point(343, 267);
             this.btn_login.Margin = new System.Windows.Forms.Padding(4);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(236, 41);
+            this.btn_login.Size = new System.Drawing.Size(156, 41);
             this.btn_login.TabIndex = 15;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = false;
@@ -55,8 +55,9 @@
             // 
             // textbox_password
             // 
-            this.textbox_password.Location = new System.Drawing.Point(329, 207);
+            this.textbox_password.Location = new System.Drawing.Point(343, 206);
             this.textbox_password.Margin = new System.Windows.Forms.Padding(4);
+            this.textbox_password.MaxLength = 20;
             this.textbox_password.Name = "textbox_password";
             this.textbox_password.PasswordChar = '*';
             this.textbox_password.Size = new System.Drawing.Size(156, 22);
@@ -75,8 +76,9 @@
             // 
             // textbox_nome
             // 
-            this.textbox_nome.Location = new System.Drawing.Point(329, 149);
+            this.textbox_nome.Location = new System.Drawing.Point(343, 149);
             this.textbox_nome.Margin = new System.Windows.Forms.Padding(4);
+            this.textbox_nome.MaxLength = 20;
             this.textbox_nome.Name = "textbox_nome";
             this.textbox_nome.Size = new System.Drawing.Size(156, 22);
             this.textbox_nome.TabIndex = 12;
@@ -117,7 +119,7 @@
             // btn_eyeview
             // 
             this.btn_eyeview.Image = ((System.Drawing.Image)(resources.GetObject("btn_eyeview.Image")));
-            this.btn_eyeview.Location = new System.Drawing.Point(493, 205);
+            this.btn_eyeview.Location = new System.Drawing.Point(506, 205);
             this.btn_eyeview.Name = "btn_eyeview";
             this.btn_eyeview.Size = new System.Drawing.Size(42, 24);
             this.btn_eyeview.TabIndex = 16;

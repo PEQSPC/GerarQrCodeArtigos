@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
+
 
 namespace GerarQrCodeArquivos
 {
@@ -19,21 +21,23 @@ namespace GerarQrCodeArquivos
 
         public class Label
         {
-            private string artigo { get; set; }
-
-
             public Bitmap QRCodeImage { get; set; }
             public Bitmap QRCodeBitmap { get; set; }
         }
 
 
-        private static void GerarQrode()
+       
+
+
+        private void GerarQrcode()
         {
             // Show a file dialog box to let the user choose an Excel file
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm;";
+            openFileDialog.Filter = "Excel Files | *.xlsx;*.xlsm;";
             openFileDialog.Title = "Selecionar Ficheiro Excel com os artigos";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+           
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -46,6 +50,9 @@ namespace GerarQrCodeArquivos
                 {
                     string folderPath = folderBrowserDialog.SelectedPath;
 
+
+               
+
                     using (ExcelPackage excelPackage = new ExcelPackage(new FileInfo(openFileDialog.FileName)))
                     {
                         ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.First();
@@ -53,15 +60,28 @@ namespace GerarQrCodeArquivos
                         // Read the data from the Excel file and create a label for each row
                         List<Label> labels = new List<Label>();
 
-                        for (int row = 2; row <= worksheet.Dimension.End.Row; row++)
+                       
+
+                        for (int row = 2; !string.IsNullOrEmpty(worksheet.Cells[row, 1].Value?.ToString()); row++)
                         {
+
                             // Se startRow ultrapassar a última linha do arquivo existente, sair do loop
                             if (row > worksheet.Dimension.End.Row)
                             {
                                 break;
                             }
 
+                            // Atualize o valor da ProgressBar
+
+
+
+
+
+
                             string artigo = worksheet.Cells[row, 1].Value.ToString();
+
+
+
 
                             Label label = new Label();
 
@@ -82,9 +102,20 @@ namespace GerarQrCodeArquivos
                             string fileName = $"{artigo}.png";
                             string filePath = Path.Combine(folderPath, fileName);
                             label.QRCodeImage.Save(filePath, ImageFormat.Png);
+
+
+
+                            // Atualize a tela para exibir o progresso atualizado
+                            Application.DoEvents();
+
                         }
-                        // Show the number of QR codes created in a MessageBox
-                        MessageBox.Show($"Total QR Codes Created: {labels.Count}");
+
+
+                       
+
+
+                            // Show the number of QR codes created in a MessageBox
+                            MessageBox.Show($"Total QR Codes Created: {labels.Count}");
                     }
                    
                 }
@@ -98,10 +129,20 @@ namespace GerarQrCodeArquivos
 
         private void btn_abrirExcel_Click(object sender, EventArgs e)
         {
-            GerarQrode();
+            // Disable the startButton
+            btn_abrirExcel.Enabled = false;
+            
+
+            GerarQrcode();
+
+    
+            // Enable the startButton
+            btn_abrirExcel.Enabled = true;
+            
 
 
         }
 
+        
     }
 }
